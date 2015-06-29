@@ -1,0 +1,29 @@
+<div  class="container">
+  <div class="row">
+    <div class="col-md-1">
+      <h2><%= @place.name %></h2>
+    </div>
+    <div class="col-md-2">
+      <h2>
+        <% if current_user %>
+          <%= link_to 'Delete', place_path(@place), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_place_path(@place), class: "btn btn-primary" %>
+        <% end %>
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to '#' do %>
+        <%= image_tag("house.jpg", class: "image-circle") %>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+        <h5><%= link_to @place.owner, '#' %></h5>
+    </div>
+    <div class="col-md-6">
+      <%= @place.description %>
+    </div>
+  </div>
+</div>

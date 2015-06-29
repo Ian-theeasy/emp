@@ -1,14 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Emp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<meta charset="UTF-8">
+	<title>EasyMeetUp</title>
+	<%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+    img.bg {
+      min-height: 100%;
+      min-width: 1024px;
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
 </head>
-<body>
-
+<body style="padding:0px 50px;">
+<%= image_tag("home-banner-bg.jpg", class: "bg") %>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="navbar-header">
+    <%= link_to "EasyMeetup", root_path, class: "navbar-brand" %>
+  </div>
+  <div>
+    <ul class="nav navbar-nav">
+      <li><a href="/about">About</a></li>
+      <li><%= link_to "Places",places_path %></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="padding:0px 30px;">
+      <% if current_user %>
+        <li><%= link_to current_user.name, "#" %></li>
+        <li><%= link_to "logout", logout_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "login", login_path %></li>
+        <li><%= link_to "signup", signup_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<% if flash.notice %>
+  <div class="notice"><%= flash.notice %></div>
+<% end %>
 <%= yield %>
 
+<div class="footer" style="text-align:center; background:grey; Padding:50px 0px 50px;">
+  <div class="container">
+    By Ian.yh
+  </div>
+</div>
+
+<script>
+  var hideNotice = function(){
+    $(".notice").fadeOut("slow");
+  }
+  setTimeout(hideNotice, 4000);
+</script>
 </body>
 </html>

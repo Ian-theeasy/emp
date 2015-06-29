@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="text-align:center">
+    <%= form_for meet do |f| %>
+      <dl class="form">
+        <dt><%= f.label :title %></dt>
+        <dd><%= f.text_field :title %></dd>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :content %></dt>
+        <dd><%= f.text_area :content %></dd>
+      </dl>
+      <p><%= f.submit :class => "btn btn-primary" %></p>
+    <% end %>
+    </div>
+  </div>
+</div>

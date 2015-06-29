@@ -1,0 +1,14 @@
+<% meets.each do |i| %>
+  <div class="col-md-4 portfolio-item">
+    <a href="#">
+      <%= image_tag("EventsCalendar_Icon.png", class:"img-responsive") %>
+    </a>
+    <h3>
+      <%= link_to i.title, meet_path(i) %>
+    </h3>
+    <p>
+      <%= link_to i.user.name, '#' %>
+      <%= time_ago_in_words(i.created_at) %> ago
+    </p>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
@@ -38,3 +38,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+######################### added
+# use bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+# use secure password
+gem 'bcrypt', '~> 3.1.7'
+# use icons in font awesome
+gem 'font-awesome-sass'
+# use atwho
+gem 'jquery-atwho-rails'

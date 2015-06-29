@@ -1,0 +1,19 @@
+<div class="row reply" style="padding:0px 0px 20px">
+  <div class="col-md-1">
+    <%= link_to '#' do %>
+        <%= image_tag("male.png", class: "img-responsive") %>
+    <% end %>
+  </div>
+  <div class="col-md-2">
+      <h5><%= link_to c.user.name, "#" %></h5>
+        <%= time_ago_in_words c.created_at %> ago
+  </div>
+  <div class="col-md-8">
+    <%= c.content %>
+  </div>
+  <div class="col-md-1">
+    <% if current_user && (current_user == c.user ||current_user == c.issue.user) %>
+      <%= link_to 'Delete', comment_path(c), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-primary delete_comment" %>
+    <% end %>
+  </div>
+</div>
