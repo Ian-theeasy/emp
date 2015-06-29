@@ -1,0 +1,34 @@
+<div  class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h2><%= @group.name %></h2>
+    </div>
+    <div class="col-md-2">
+      <h2>
+        <% if current_user %>
+          <%= link_to 'Delete', group_path(@group), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-primary" %>
+          <% if @joining %>
+            <%= link_to 'Leave', joining_path(@joining), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to 'Join', joinings_path(:user_id => current_user.id, :group_id => @group.id), method: :POST,class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to '#' do %>
+        <%= image_tag("house.jpg", class: "image-circle") %>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+        <h5><%= @group.name %></h5>
+    </div>
+    <div class="col-md-6">
+      <h5><%= @group.description %></h5>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,11 @@ Rails.application.routes.draw do
   # places
   resources :places
 
+  #groups
+  resources :groups
+
+  resources :joinings, only: [:create, :destroy]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

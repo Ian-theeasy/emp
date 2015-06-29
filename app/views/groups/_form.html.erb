@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-12" style="text-align:center;">
+    <%= form_for @group do |f| %>
+      <dl class="form-group">
+        <dt><%= f.label :name %></dt>
+        <dd><%= f.text_field :name %></dd>
+      </dl>
+      <dl class="form-group">
+        <dt><%= f.label :description %></dt>
+        <dd><%= f.text_area :description %></dd>
+      </dl>
+      <p><%= f.submit :class => "btn btn-primary" %></p>
+    <% end %>
+    </div>
+  </div>
+</div>

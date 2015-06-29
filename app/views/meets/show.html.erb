@@ -6,8 +6,8 @@
       <div class="col-md-2 " >
       <h2>
       <% if current_user && current_user == @meet.user %>
-        <%= link_to 'Delete', issue_path(@meet), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-        <%= link_to 'Edit', edit_issue_path(@meet), class: "btn btn-primary" %>
+        <%= link_to 'Delete', meet_path(@meet), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_meet_path(@meet), class: "btn btn-primary" %>
       <% end %>
       </h2>
     </div>

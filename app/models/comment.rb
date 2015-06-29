@@ -1,4 +1,4 @@
 class Comment < ActiveRecord::Base
-	belongs_to :issue
+	belongs_to :meet
 	belongs_to :user
 end

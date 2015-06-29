@@ -21,7 +21,7 @@ class MeetsController < ApplicationController
 	end
 
 	def create
-  	meet.create(meet_params)
+  	Meet.create(meet_params)
   	redirect_to :root
 	end
 
@@ -37,6 +37,6 @@ class MeetsController < ApplicationController
 
 	private
   	def meet_params
-   		params.require(:Meet).permit(:title, :content, :user_id)
+   		params.require(:meet).permit(:title, :content, :user_id)
   	end
 end

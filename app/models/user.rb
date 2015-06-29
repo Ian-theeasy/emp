@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :comments
-	has_many :issues
+	has_many :comments, dependent: :destroy
+	has_many :meets, dependent: :destroy
+	has_many :groups, through: :joinings
 	has_secure_password
 
 	# name validates

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+        <h2>All Groups</h2>
+    </div>
+    <div class="col-md-10">
+      <h2>
+        <% if current_user %>
+          <%= link_to 'Create a New Group', new_group_path(), class: "btn btn-primary" %>
+        <% end %>
+      </h2>
+    </div>
+  </div>
+
+  <% @groups.each do |i| %>
+    <div class="row" style="padding:0px 0px 20px">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-2">
+            <i class="fa fa-building" style="font-size:50px;"></i>
+          </div>
+          <div class="col-md-2">
+          <h5>
+            <%= link_to i.name, group_path(i) %>
+          </h5>
+          </div>
+          <div class="col-md-8">
+            <p>
+              description
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
