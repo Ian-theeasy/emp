@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row" style="padding:0px 0px 20px">
-    <div class="col-md-2 " >
+    <div class="col-md-12 " >
       <h2><%= @meet.title %></h2>
       </div>
       <div class="col-md-2 " >
@@ -20,8 +20,10 @@
         <%= image_tag("male.png", class:"img-responsive") %>
       </div>
       <div class="col-md-11" >
-        <h5><%= link_to @meet.user.name, '#' %></h5>
-        <%= @meet.content %>
+        <h5>created by <%= link_to @meet.user.name, '#' %></h5>
+        <h5>group: <%= link_to @meet.group.name, group_path(@meet.group_id) %></h5>
+        <h5>place: <%= link_to @meet.place.name, place_path(@meet.place_id) %></h5>
+        details: <%= @meet.content %>
       </div>
   </div>
   <div class="row ">

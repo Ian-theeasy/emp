@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   root 'mainpage#index'
   get 'about' => 'mainpage#about'
 
-  #issues
+  # meets
   resources :meets
+  get "find_place" => "meets#find_place", :as => "find_place"
 
   # comments
   resources :comments, only: [:create, :destroy]

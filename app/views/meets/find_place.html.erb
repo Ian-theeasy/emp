@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="text-align:center">
+      <p><%= cookies[:group_id] %></p>
+      <%= form_tag(new_meet_path(), method: "get") do %>
+      <dl class="form-group">
+        <dt><%= label_tag(:placename, "Place name:") %></dt>
+        <dd><%= text_field_tag(:placename) %></dd>
+        <% if @search_failed=true%>
+        <dd>  Search failed<dd>
+        <% end %>
+        <dd><%= submit_tag("Search") %><dd>
+      </dl>
+      <% end %>
+    </div>
+  </div>
+</div>

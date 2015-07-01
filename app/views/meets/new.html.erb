@@ -1,11 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" style="text-align:center">
-    <%= form_for(Meet.new(user_id: current_user.id)) do |f| %>
+    <%= cookies[:place_id] %>
+    <% if cookies[:place_id]!=nil %>
+    <p>Place "<%= Place.find(cookies[:place_id]).name%>" Found</p>
+    <% end %>
+    <% @meet=Meet.new(:user_id => current_user.id, :group_id => cookies[:group_id], :place_id => cookies[:place_id]) %>
+    <%= form_for(@meet) do |f| %>
 			<%= f.hidden_field :user_id %>
+      <%= f.hidden_field :group_id %>
+      <%= f.hidden_field :place_id %>
       <dl class="form-group">
         <dt><%= f.label :title %></dt>
         <dd><%= f.text_field :title %></dd>
+        <% if @meet.errors[:title].any? %>
+          <dd ><%= @meet.errors[:title][0] %></dd>
+        <% end %>
+      </dl>
+      <dl class="form-group">
+        <dt><%= f.label :start_date %></dt>
+        <dd><%= f.date_select :start_date, {:default =>Date.today, :start_year => Date.today.year } %></dd>
+      </dl>
+      <dl class="form-group">
+        <dt><%= f.label :start_time %></dt>
+        <dd><%= f.time_select :start_time, {:default =>Time.now} %></dd>
       </dl>
       <dl class="form-group">
         <dt><%= f.label :content %></dt>

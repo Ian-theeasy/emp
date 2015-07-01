@@ -4,7 +4,11 @@ class GroupsController < ApplicationController
 	end
 	def show
 		@group= Group.find(params[:id])
-		@joining = Joining.find_by(group_id: params[:id],user_id: current_user.id)
+		if current_user
+			@joining = Joining.find_by(group_id: params[:id],user_id: current_user.id)
+		end
+		@user_list= Joining.where(group_id: params[:id])
+		@meets=Meet.where(group_id:params[:id])
 	end
 
 	def new
